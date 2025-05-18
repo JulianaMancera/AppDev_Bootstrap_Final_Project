@@ -360,7 +360,7 @@
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
+                        <a class="nav-link" href="#tools">Tools</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -478,7 +478,7 @@
         </div>
     </section>
 
-   <section id="skills" class="py-5">
+   <section id="tools" class="py-5">
     <div class="container">
         <h2 class="text-center mb-5">Programming Languages</h2>
         <div class="skills-grid">
