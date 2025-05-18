@@ -35,7 +35,7 @@
             margin-top: 0; /* Reset any existing margin */
         }
         .hero-section {
-            background: url(pic/purplee.png) no-repeat center center;
+            background: url(assets/purplee.png) no-repeat center center;
             background-size: cover;
             display: flex;
             align-items: center;
@@ -386,25 +386,25 @@
             <h2 class="text-center mb-5 text-white">Gallery</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
                 <div class="col">
-                    <img src="pic/profile.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 1">
+                    <img src="assets/profile.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 1">
                 </div>
                 <div class="col">
-                    <img src="pic/blue2.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 2">
+                    <img src="assets/blue2.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 2">
                 </div>
                 <div class="col">
-                    <img src="pic/profile3.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 1">
+                    <img src="assets/profile3.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 1">
                 </div>
                 <div class="col">
-                    <img src="pic/blue3.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 2">
+                    <img src="assets/blue3.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 2">
                 </div>
                 <div class="col">
-                    <img src="pic/profile4.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 3">
+                    <img src="assets/profile4.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 3">
                 </div>
                 <div class="col">
-                    <img src="pic/blue4.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
+                    <img src="assets/blue4.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
                 </div>
                  <div class="col">
-                    <img src="pic/proofile.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
+                    <img src="assets/proofile.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
                 </div>
             </div>
         </div>
@@ -416,7 +416,7 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 <div class="col">
                     <div class="project-card">
-                        <img src="pic/neu-ojt-link.png" alt="Project 1">
+                        <img src="assets/neu-ojt-link.png" alt="Project 1">
                         <div class="card-body p-4">
                             <h5 class="card-title">NEU OJT-Link</h5>
                             <p class="card-text">NEU-OJT-Link is a digital platform designed for students undergoing On-the-Job Training (OJT) at New Era University.</p>
@@ -426,7 +426,7 @@
                 </div>
                 <div class="col">
                     <div class="project-card">
-                        <img src="pic/pacman.png" alt="Project 2">
+                        <img src="assets/pacman.png" alt="Project 2">
                         <div class="card-body p-4">
                             <h5 class="card-title">Pac-Man</h5>
                             <p class="card-text">This is a simple Pac-Man game built using Java and the Swing framework.</p>
@@ -436,7 +436,7 @@
                 </div>
                 <div class="col">
                     <div class="project-card">
-                        <img src="pic/bootstrap.png" alt="Project 3">
+                        <img src="assets/bootstrap.png" alt="Project 3">
                         <div class="card-body p-4">
                             <h5 class="card-title">AppDev Bootstrap Compilation</h5>
                             <p class="card-text">Showcases responsive activitites with Bootstrap</p>
@@ -446,7 +446,7 @@
                 </div>
                 <div class="col">
                     <div class="project-card">
-                        <img src="pic/php.png" alt="Project 4">
+                        <img src="assets/php.png" alt="Project 4">
                         <div class="card-body p-4">
                             <h5 class="card-title">AppDev PHP Compilation</h5>
                             <p class="card-text">PHP Laboratory Activities in one page</p>
@@ -456,7 +456,7 @@
                 </div>
                 <div class="col">
                     <div class="project-card">
-                        <img src="pic/hotel.png" alt="Project 5">
+                        <img src="assets/hotel.png" alt="Project 5">
                         <div class="card-body p-4">
                             <h5 class="card-title">Hotel Booking System</h5>
                             <p class="card-text">A GUI-based hotel management system built with Python (Tkinter). This system allows users to book rooms, manage reservations, and includes VIP rooms with exclusive perks.</p>
@@ -466,7 +466,7 @@
                 </div>
                 <div class="col">
                     <div class="project-card">
-                        <img src="pic/battle.png" alt="Project 6">
+                        <img src="assets/battle.png" alt="Project 6">
                         <div class="card-body p-4">
                             <h5 class="card-title">Adventure Game</h5>
                             <p class="card-text">Mini battle game.</p>
