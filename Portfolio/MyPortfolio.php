@@ -58,7 +58,7 @@
         }
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 4;
         }
         .hero-section h1 {
             font-family: 'Poppins', sans-serif;
@@ -122,10 +122,10 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .project-card img {
-        width: 100%;
-        max-height: 250px;
-        object-fit: contain;
-        border-radius: 15px 15px 0 0;
+            width: 100%;
+            max-height: 250px;
+            object-fit: contain;
+            border-radius: 15px 15px 0 0;
         }
         .work-section {
             background: url(pic/purplee.png) fixed center center;
@@ -214,8 +214,8 @@
             animation: slideUp 0.8s ease forwards;
         }
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--primary);
@@ -354,7 +354,7 @@
                         <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#works">Works</a>
+                        <a class="nav-link" href="#gallery">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
@@ -381,27 +381,30 @@
         </div>
     </section>
 
-    <section id="works" class="work-section py-5">
+    <section id="gallery" class="work-section">
         <div class="container position-relative">
-            <h2 class="text-center mb-5 text-white">My Creations</h2>
+            <h2 class="text-center mb-5 text-white">Gallery</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
                 <div class="col">
                     <img src="pic/profile.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 1">
                 </div>
                 <div class="col">
-                    <img src="pic/profile2.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 2">
+                    <img src="pic/blue2.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 2">
                 </div>
                 <div class="col">
                     <img src="pic/profile3.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 1">
                 </div>
                 <div class="col">
-                    <img src="pic/profile4.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 2">
+                    <img src="pic/blue3.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 2">
                 </div>
                 <div class="col">
-                    <img src="pic/profile.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 3">
+                    <img src="pic/profile4.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 3">
                 </div>
                 <div class="col">
-                    <img src="pic/profile2.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
+                    <img src="pic/blue4.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
+                </div>
+                 <div class="col">
+                    <img src="pic/proofile.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
                 </div>
             </div>
         </div>
@@ -438,6 +441,36 @@
                             <h5 class="card-title">AppDev Bootstrap Compilation</h5>
                             <p class="card-text">Showcases responsive activitites with Bootstrap</p>
                             <a href="https://github.com/JulianaMancera/AppDev_Bootstrap_Activities" class="btn btn-github btn-sm">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="project-card">
+                        <img src="pic/php.png" alt="Project 4">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">AppDev PHP Compilation</h5>
+                            <p class="card-text">PHP Laboratory Activities in one page</p>
+                            <a href="https://github.com/JulianaMancera/AppDev_Lab_Activities" class="btn btn-github btn-sm">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="project-card">
+                        <img src="pic/hotel.png" alt="Project 5">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">Hotel Booking System</h5>
+                            <p class="card-text">A GUI-based hotel management system built with Python (Tkinter). This system allows users to book rooms, manage reservations, and includes VIP rooms with exclusive perks.</p>
+                            <a href="https://github.com/JulianaMancera/Hotel_Booking_System" class="btn btn-github btn-sm">View on GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="project-card">
+                        <img src="pic/battle.png" alt="Project 6">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">Adventure Game</h5>
+                            <p class="card-text">Mini battle game.</p>
+                            <a href="https://github.com/JulianaMancera/adventure_game" class="btn btn-github btn-sm">View on GitHub</a>
                         </div>
                     </div>
                 </div>
