@@ -525,7 +525,7 @@
                     <div class="col-md-8">
                         <h2 class="mb-4">About Me</h2>
                         <p class="lead">
-                            I am a dedicated Computer Science student with a strong passion for software development, database management, and designing innovative solutions to complex challenges. My expertise lies in writing efficient code, optimizing data systems, and tackling intricate problems with creativity and precision. 
+                            I am Juliana Mancera, a dedicated Computer Science student with a strong passion for software development, database management, and designing innovative solutions to complex challenges. My expertise lies in writing efficient code, optimizing data systems, and tackling intricate problems with creativity and precision. 
                             I am committed to continuous learning and leveraging technology to drive impactful outcomes.
                         </p>
                         <p>
