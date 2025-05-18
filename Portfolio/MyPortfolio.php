@@ -3,136 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <style>
-        /* Custom styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary: #7c3aed;
+            --secondary: #a78bfa;
+            --dark: #1a1a1a;
+            --accent: #ede9fe;
+            --navbar-height: 70px; 
+        }
+        html {
             scroll-behavior: smooth;
         }
-        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            position: relative;
+            padding-top: calc(var(--navbar-height) + 2rem); /* Add navbar height plus some padding */
+            margin-top: 0; /* Reset any existing margin */
+        }
         .hero-section {
-            height: 100vh;
+            background: url(pic/purplee.png) no-repeat center center;
+            background-size: cover;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('pic/sunset.jpg');
-            background-size: cover;
-            background-position: center;
+            text-align: center;
             color: white;
+            position: relative;
+            margin-top: calc(-1 * var(--navbar-height)); 
+            padding-top: calc(var(--navbar-height) + 5rem); 
+            min-height: calc(100vh + var(--navbar-height));
         }
-        
-        section {
-            padding: 80px 0;
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(124,58,237,0.3), rgba(167,139,250,0.3));
         }
-        
-        .portfolio-item {
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-section h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px rgba(124, 58, 237, 0.8);
+        }
+        .typed-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 1.5rem;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(124, 58, 237, 0.8);
+        }
+        .navbar {
+            background: linear-gradient(to right, var(--dark), rgba(0,0,0,0.7));
+            transition: all 0.3s ease;
+            height: var(--navbar-height); 
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+            font-weight: 500;
+            position: relative;
+        }
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+        .portfolio-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 15px;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        .portfolio-img:hover {
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .project-card img {
+        width: 100%;
+        max-height: 250px;
+        object-fit: contain;
+        border-radius: 15px 15px 0 0;
+        }
+        .work-section {
+            background: url(pic/purplee.png) fixed center center;
+            background-size: cover;
+            position: relative;
+        }
+        .work-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+        }
+        .form-control {
+            border: none;
+            border-bottom: 2px solid var(--dark);
+            border-radius: 0;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary);
+            background: rgba(255,255,255,0.1);
+        }
+        .form-label {
+            color: var(--dark);
+            transition: all 0.3s ease;
+        }
+        .form-control:focus + .form-label,
+        .form-control:not(:placeholder-shown) + .form-label {
+            transform: translateY(-1.5rem);
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+        .btn-primary {
+            background: var(--primary);
+            border: none;
+            border-radius: 25px;
+            padding: 0.75rem 2rem;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+        .btn-github {
+            background: var(--dark);
+            color: white;
+            border-radius: 25px;
+            padding: 0.5rem 1.5rem;
+        }
+        .btn-github:hover {
+            background: var(--primary);
+        }
+
+        /* About Me Styles */
+        .about-me-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 3rem;
             position: relative;
             overflow: hidden;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box, 
+                        linear-gradient(45deg, var(--primary), var(--secondary)) border-box;
         }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .portfolio-overlay {
+        .about-me-container::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 123, 255, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: radial-gradient(circle at top left, rgba(124,58,237,0.1), transparent);
+            z-index: 0;
+        }
+        .about-me-content {
+            position: relative;
+            z-index: 1;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transform: translateY(20px);
+            animation: slideUp 0.8s ease forwards;
         }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        .skill-progress {
-            height: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .navbar {
-            transition: background-color 0.3s ease;
-        }
-        
-        .navbar.scrolled {
-            background-color: #212529 !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .service-card {
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(124,58,237,0.5);
         }
-        
-        .contact-form .form-control {
-            border-radius: 0;
-            border: none;
-            border-bottom: 2px solid #ced4da;
-            padding: 15px 0;
-            background: transparent;
-        }
-        
-        .contact-form .form-control:focus {
-            box-shadow: none;
-            border-color: #007bff;
-        }
-        
         .social-icons a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #f8f9fa;
-            text-align: center;
-            line-height: 40px;
-            margin: 0 8px;
-            transition: all 0.3s ease;
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin: 0 0.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
         }
-        
         .social-icons a:hover {
-            background: #007bff;
-            color: white;
+            color: var(--primary);
+            transform: scale(1.2);
         }
-        
-        footer {
-            background: #212529;
-            color: white;
-            padding: 30px 0;
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+        /* Skills Styles */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .skill-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            text-align: center;
+            border: 2px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .skill-card:nth-child(1) { animation: fadeIn 0.5s ease forwards 0.1s; }
+        .skill-card:nth-child(2) { animation: fadeIn 0.5s ease forwards 0.2s; }
+        .skill-card:nth-child(3) { animation: fadeIn 0.5s ease forwards 0.3s; }
+        .skill-card:nth-child(4) { animation: fadeIn 0.5s ease forwards 0.4s; }
+        .skill-card:nth-child(5) { animation: fadeIn 0.5s ease forwards 0.5s; }
+        .skill-card:nth-child(6) { animation: fadeIn 0.5s ease forwards 0.6s; }
+        .skill-card:nth-child(7) { animation: fadeIn 0.5s ease forwards 0.7s; }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(124,58,237,0.3);
+        }
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .skill-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        .skill-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .progress {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+        .progress-bar {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            transition: width 2s ease-in-out;
+            position: relative;
+        }
+        .progress-label {
+            font-size: 0.8rem;
+            color: var(--dark);
+            text-align: right;
+            margin-top: 0.2rem;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .typed-text {
+                font-size: 1.2rem;
+            }
+            .about-me-container {
+                padding: 2rem;
+            }
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+            .social-icons a {
+                font-size: 1.5rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .skill-card {
+                padding: 1rem;
+            }
+        }
+        #works, #projects, #skills, #about, #contact {
+            scroll-margin-top: var(--navbar-height);
+        }
+
     </style>
 </head>
-
-<body data-bs-spy="scroll" data-bs-target="#navbar">
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#home">DevPortfolio</a>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="70">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">Juliana Portfolio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -142,13 +354,16 @@
                         <a class="nav-link" href="#home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#work">Portfolio</a>
+                        <a class="nav-link" href="#works">Works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#skills">Skills</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -158,94 +373,71 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-3 fw-bold mb-4">Welcome to My Portfolio</h1>
-            <p class="lead mb-5">Full-Stack Developer & UI/UX Designer</p>
-            <a href="#contact" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Get In Touch</a>
+        <div class="hero-content">
+            <h1>Welcome to My World</h1>
+            <p class="lead"><span class="typed-text"></span></p>
+            <a href="#contact" class="btn btn-primary mt-3">Let's Connect</a>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="work" class="bg-light">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-3">My Portfolio</h2>
-                    <p class="lead text-muted">Check out some of my recent projects and work</p>
+    <section id="works" class="work-section py-5">
+        <div class="container position-relative">
+            <h2 class="text-center mb-5 text-white">My Creations</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
+                <div class="col">
+                    <img src="pic/profile.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 1">
+                </div>
+                <div class="col">
+                    <img src="pic/profile2.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 2">
+                </div>
+                <div class="col">
+                    <img src="pic/profile3.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 1">
+                </div>
+                <div class="col">
+                    <img src="pic/profile4.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 2">
+                </div>
+                <div class="col">
+                    <img src="pic/profile.jpg" class="portfolio-img img-thumbnail" alt="PHP Activity 3">
+                </div>
+                <div class="col">
+                    <img src="pic/profile2.jpg" class="portfolio-img img-thumbnail" alt="Bootstrap Activity 3">
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="pic/profile.jpg" alt="Project 1" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h5>E-Commerce Website</h5>
-                                <p>Web Development</p>
-                                <a href="#" class="btn btn-light btn-sm">View Details</a>
-                            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container position-relative">
+            <h2 class="text-center mb-5">My Projects</h2>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                <div class="col">
+                    <div class="project-card">
+                        <img src="pic/neu-ojt-link.png" alt="Project 1">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">NEU OJT-Link</h5>
+                            <p class="card-text">NEU-OJT-Link is a digital platform designed for students undergoing On-the-Job Training (OJT) at New Era University.</p>
+                            <a href="https://github.com/JulianaMancera/NEU-OJT-Link" class="btn btn-github btn-sm">View on GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="pic/profile2.jpg" alt="Project 2" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h5>Mobile App UI</h5>
-                                <p>UI/UX Design</p>
-                                <a href="#" class="btn btn-light btn-sm">View Details</a>
-                            </div>
+                <div class="col">
+                    <div class="project-card">
+                        <img src="pic/pacman.png" alt="Project 2">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">Pac-Man</h5>
+                            <p class="card-text">This is a simple Pac-Man game built using Java and the Swing framework.</p>
+                            <a href="https://github.com/JulianaMancera/PacMan" class="btn btn-github btn-sm">View on GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="pic/profile3.jpg" alt="Project 3" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h5>Company Branding</h5>
-                                <p>Brand Design</p>
-                                <a href="#" class="btn btn-light btn-sm">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="pic/profile4.jpg" alt="Project 4" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h5>Portfolio Website</h5>
-                                <p>Front-end Development</p>
-                                <a href="#" class="btn btn-light btn-sm">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="pic/profile.jpg" alt="Project 5" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h5>Online Learning Platform</h5>
-                                <p>Full-Stack Development</p>
-                                <a href="#" class="btn btn-light btn-sm">View Details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="portfolio-item">
-                        <img src="pic/profile2.jpg" alt="Project 6" class="img-fluid">
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h5>Restaurant Booking App</h5>
-                                <p>Mobile Development</p>
-                                <a href="#" class="btn btn-light btn-sm">View Details</a>
-                            </div>
+                <div class="col">
+                    <div class="project-card">
+                        <img src="pic/bootstrap.png" alt="Project 3">
+                        <div class="card-body p-4">
+                            <h5 class="card-title">AppDev Bootstrap Compilation</h5>
+                            <p class="card-text">Showcases responsive activitites with Bootstrap</p>
+                            <a href="https://github.com/JulianaMancera/AppDev_Bootstrap_Activities" class="btn btn-github btn-sm">View on GitHub</a>
                         </div>
                     </div>
                 </div>
@@ -253,82 +445,62 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-3">My Skills</h2>
-                    <p class="lead text-muted">Specialized in multiple technical areas and growing every day</p>
-                </div>
+   <section id="skills" class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Programming Languages</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-php skill-icon"></i>
+                <h4>PHP</h4>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>HTML/CSS <span class="float-end">90%</span></h5>
-                    <div class="progress skill-progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    
-                    <h5>JavaScript <span class="float-end">85%</span></h5>
-                    <div class="progress skill-progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    
-                    <h5>PHP <span class="float-end">80%</span></h5>
-                    <div class="progress skill-progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <h5>UI/UX Design <span class="float-end">75%</span></h5>
-                    <div class="progress skill-progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    
-                    <h5>Bootstrap <span class="float-end">95%</span></h5>
-                    <div class="progress skill-progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    
-                    <h5>MySQL <span class="float-end">70%</span></h5>
-                    <div class="progress skill-progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                </div>
+            <div class="skill-card">
+                <i class="fab fa-bootstrap skill-icon"></i>
+                <h4>Bootstrap</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-java skill-icon"></i>
+                <h4>Java</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python skill-icon"></i>
+                <h4>Python</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code skill-icon"></i>
+                <h4>C++</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js skill-icon"></i>
+                <h4>TypeScript</h4>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-js-square skill-icon"></i>
+                <h4>JavaScript</h4>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Services Section -->
-    <section id="services" class="bg-light">
-        <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-3">My Services</h2>
-                    <p class="lead text-muted">What I can do for you</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="card service-card h-100 border-0 shadow-sm">
-                        <div class="card-body p-5 text-center">
-                            <div class="mb-4">
-                                <i class="fas fa-code fa-3x text-primary"></i>
-                            </div>
-                            <h4 class="card-title mb-3">Web Development</h4>
-                            <p class="card-text text-muted">I build responsive websites and web applications using modern technologies like PHP, JavaScript, and Bootstrap.</p>
-                        </div>
+  <section id="about" class="py-5">
+    <div class="container-fluid">
+        <div class="about-me-container">
+            <div class="about-me-content">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <img src="https://github.com/JulianaMancera.png" alt="Profile Picture" class="profile-img mb-3">
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card service-card h-100 border-0 shadow-sm">
-                        <div class="card-body p-5 text-center">
-                            <div class="mb-4">
-                                <i class="fas fa-paint-brush fa-3x text-primary"></i>
-                            </div>
-                            <h4 class="card-title mb-3">UI/UX Design</h4>
-                            <p class="card-text text-muted">I create intuitive and visually appealing user interfaces and experiences for web and mobile applications.</p>
+                    <div class="col-md-8">
+                        <h2 class="mb-4">About Me</h2>
+                        <p class="lead">
+                            I am a dedicated Computer Science student with a strong passion for software development, database management, and designing innovative solutions to complex challenges. My expertise lies in writing efficient code, optimizing data systems, and tackling intricate problems with creativity and precision. 
+                            I am committed to continuous learning and leveraging technology to drive impactful outcomes.
+                        </p>
+                        <p>
+                            When I’m not coding, you’ll find me exploring new tech trends, contributing to open-source projects, or sipping coffee while brainstorming my next big idea. Let’s connect and build something amazing together!
+                        </p>
+                        <div class="social-icons mt-4">
+                            <a href="https://github.com/JulianaMancera" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/juliana-mancera-84947b309/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>
@@ -336,111 +508,56 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bg-dark text-white">
+    <section id="contact" class="py-4" style="background: linear-gradient(to bottom, #ffffff, #f1f1f1);">
         <div class="container">
-            <div class="row mb-5">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="display-5 fw-bold mb-3">Get In Touch</h2>
-                    <p class="lead">Have a project in mind? Let's work together!</p>
+             <h2 class="text-center mb-5">Get in Touch</h2>
+            <form class="col-md-6 mx-auto contact-form">
+                <div class="mb-4 position-relative">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" required>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="bg-light p-5 rounded-3 text-dark h-100">
-                        <h4 class="mb-4">Contact Information</h4>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0">
-                                <i class="fas fa-map-marker-alt text-primary"></i>
-                            </div>
-                            <div class="ms-3">
-                                <p class="mb-0">123 Developer Street, Coding City</p>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0">
-                                <i class="fas fa-envelope text-primary"></i>
-                            </div>
-                            <div class="ms-3">
-                                <p class="mb-0">developer@example.com</p>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="flex-shrink-0">
-                                <i class="fas fa-phone text-primary"></i>
-                            </div>
-                            <div class="ms-3">
-                                <p class="mb-0">+1 (123) 456-7890</p>
-                            </div>
-                        </div>
-                        <div class="social-icons mt-5">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
+                <div class="mb-4 position-relative">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" required>
                 </div>
-                <div class="col-lg-6">
-                    <form class="contact-form bg-light p-5 rounded-3 text-dark">
-                        <div class="mb-4">
-                            <input type="text" class="form-control" placeholder="Your Name">
-                        </div>
-                        <div class="mb-4">
-                            <input type="email" class="form-control" placeholder="Your Email">
-                        </div>
-                        <div class="mb-4">
-                            <input type="text" class="form-control" placeholder="Subject">
-                        </div>
-                        <div class="mb-4">
-                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
-                    </form>
+                <div class="mb-4 position-relative">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subject" required>
                 </div>
-            </div>
+                <div class="mb-4 position-relative">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-4">Send Message</button>
+            </form>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 My Portfolio. All rights reserved.</p>
+    <script>
+        // Typed.js for hero section (just extra design)
+        var typed = new Typed('.typed-text', {
+            strings: [
+                "A Programmer's Odyssey",
+                "Innovating Through Code",
+                "Building Digital Worlds"
+            ],
+            typeSpeed: 50,
+            backSpeed: 30,
+            backDelay: 2000,
+            loop: true
+        });
+
+    </script>
+
+      <footer class="bg-dark text-white text-center">
+        <div class="container py-4">
+            <p class="mb-0">© 2025 Juliana Mancera.</p>
+            <div class="mt-2">
+                <a href="#home" class="text-white text-decoration-none mx-2">Home</a>
+                <a href="#contact" class="text-white text-decoration-none mx-2">Contact</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom JS -->
-    <script>
-        // Change navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-        
-        // Initialize Bootstrap scrollspy
-        var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-            target: '#navbar'
-        });
-        
-        // Handle navbar collapse on mobile
-        const navLinks = document.querySelectorAll('.nav-link');
-        const menuToggle = document.getElementById('navbarNav');
-        const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
-        
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                if (menuToggle.classList.contains('show')) {
-                    bsCollapse.toggle();
-                }
-            });
-        });
-    </script>
 </body>
 </html>
