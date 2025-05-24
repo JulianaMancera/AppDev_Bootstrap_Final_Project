@@ -12,5 +12,5 @@ A responsive portfolio website built with Bootstrap, showcasing projects, skills
 - **Smooth Scrolling**: Fixed navbar with smooth scrolling to sections.
 - **Custom Styling**: Uses Poppins font, Font Awesome icons, and a purple-themed gradient design.
 
-## Programmer
+### Programmer: 
 Juliana Mancera
